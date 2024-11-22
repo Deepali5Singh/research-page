@@ -17,8 +17,8 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.get("/", (req, res) => res.render("home"));
-app.get("/blogs", (req, res) => res.render("blogs"));
+app.get("/", (req, res) => res.render("index"));
+app.get("/blogs", (req, res) => res.render("home"));
 //app.get("/chatwithai", (req, res) => res.render("myai"));
 
 app.listen(port, () => console.log(`App is listening on port ${port}!`));

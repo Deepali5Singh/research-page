@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Development </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+
+    <!--font awesome(for icons)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+    <!--css file-->
+    <style>
+        /* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Itim&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #001c30;
+  z-index: 1;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 2%;
+  font-size: 120%;
+  font-weight: 100;
+  font-family: cursive;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: 0.3s;
+  padding: 2% 6% 2% 5%;
+}
+
+.header .logo {
+  font-size: 25px;
+  font-weight: 800;
+  text-decoration: underline;
+  color: #001c30;
+}
+
+section {
+  padding: 2.5em 8em 5em 10em;
+}
+
+.home {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home .content {
+  width: 85%;
+  margin-left: -6%;
+  margin-top: 50px;
+  z-index: 900;
+}
+
+.home .content h1 {
+  color: #d9edf7;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 55px;
+  margin-bottom: 15px;
+  font-weight: bolder;
+}
+
+.home .content h1 span {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 35px !important;
+}
+
+.home .content p {
+  margin-bottom: 50px;
+}
+
+.home .content a {
+  color: #d9edf7;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 2px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 15px;
+}
+
+.home .icons {
+  position: absolute;
+  right: 7%;
+  top: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 900;
+}
+
+.home .icons a {
+  font-size: 20px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.home .icons a:hover {
+  transform: scale(1.3);
+}
+
+.home video {
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  clip-path: circle(0% at 0 50%);
+}
+
+.home video.active {
+  clip-path: circle(150% at 0 50%);
+  transition: 2s;
+}
+
+.home::before {
+  position: fixed;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 1, 1, 0.3);
+  z-index: 700;
+  left: 0;
+  top: 0;
+}
+
+.video-nav {
+  z-index: 800;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transform: translateY(80px);
+  margin-bottom: 12px;
+}
+
+.video-nav .nav-item {
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.video-nav .nav-item.active {
+  width: 30px;
+}
+
+/* **********CATEGORYIES******** */
+
+.categories {
+  background: #001c30;
+}
+
+.categories h1 {
+  line-height: 1;
+  font-size: 60px;
+}
+
+.container_categories {
+  display: grid;
+}
+
+.categories_left {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #001c30;
+}
+
+.categories_left p {
+  margin: 1rem 0 3rem;
+  color: #001c30;
+}
+
+.categories_right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  cursor: pointer;
+}
+
+.category {
+  background: #002b36;
+  padding: 2rem;
+  border-radius: 2rem;
+  transition: var(--transition);
+  font-weight: 800;
+}
+
+.category h5 {
+  color: #ccc;
+}
+
+.categories_right i {
+  color: #faf9f6;
+}
+
+.category:nth-child(2) .category-icon {
+  background: var(--color-danger);
+}
+
+.category:nth-child(3) .category-icon {
+  background: var(--color-succes);
+}
+
+.category:nth-child(4) .category-icon {
+  background: var(--color-warning);
+}
+
+.category:nth-child(5) .category-icon {
+  background: var(--color-succes);
+}
+
+.category:nth-child(6) .category-icon {
+  background: var(--color-danger);
+}
+
+.category-icon {
+  background: var(--color-primary);
+  padding: 0.7rem;
+  border-radius: 0.9rem;
+  color: #1b2925;
+}
+
+.category h5 {
+  margin: 2rem 0 1rem;
+  color: #1b2925;
+}
+
+.category p {
+  font-size: 0.85rem;
+  color: #1b2925;
+}
+
+@media (max-width: 1049px) {
+  .header {
+    padding: 2% 6% 2% 5%;
+  }
+
+  section {
+    padding: 6em 2em 6em 4em;
+  }
+
+  .home .icons {
+    right: 8%;
+  }
+
+  .drop-container {
+    display: none;
+  }
+}
+
+@media (max-width: 990px) {
+  .header .nav {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(1, 1, 1, 0.5);
+    display: none;
+  }
+
+  .header.active .nav {
+    display: flex;
+  }
+
+  .header .nav a {
+    background: #fff;
+    color: #000;
+    width: 500px;
+    padding: 20px;
+    text-align: center;
+    font-size: 19px;
+    margin-left: 0px;
+  }
+
+  .header .nav a:hover {
+    background: #222;
+    color: #fff;
+  }
+
+  .header .menu-btn {
+    width: 40px;
+    height: 40px;
+    background: url(media/menu.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .header.active .menu-btn {
+    z-index: 1000;
+    background: url(media/close.png) no-repeat;
+    background-size: 20px;
+    background-position: center;
+    transition: 0.3s;
+  }
+}
+
+.drop-container {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.drop-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #b2d7ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15%;
+  flex-direction: column;
+  border-radius: 25%;
+  font-size: x-large;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 100%;
+}
+
+.overlay-nav {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  max-width: max-content;
+  max-height: max-content;
+  gap: 5rem;
+  padding: 0.5em;
+  background-color: #d9edf7;
+  padding: 10% 20% 10% 20%;
+  border-radius: 15px;
+  box-shadow: inset -2px -2px 20px rgba(0, 0, 0, 0.622);
+  box-shadow: inset 2px -2px 20px rgba(0, 0, 0, 0.622);
+  box-shadow: inset -2px 2px 20px rgba(0, 0, 0, 0.622);
+  box-shadow: inset 2px 2px 20px rgba(0, 0, 0, 0.622);
+}
+
+.overlay-nav a {
+  color: #001c30;
+  text-align: center;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.overlay-btn {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  color: #001c30;
+  font-size: 2rem;
+  background-color: #d9edf7;
+  padding: 1%;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.622);
+  box-shadow: inset 2px -2px 5px rgba(0, 0, 0, 0.622);
+  box-shadow: inset -2px 2px 5px rgba(0, 0, 0, 0.622);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.622);
+}
+
+/* -----------------home-section------------------ */
+
+.home-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-section h2 {
+  color: #001c30;
+  font-size: 85px;
+}
+
+.home-section h3 {
+  color: #001c30;
+  font-size: 40px;
+}
+
+.panel {
+  margin-top: 5vh;
+  padding: 5vh 8vw 5vh 8vw;
+  width: 85vw;
+  height: 70vh;
+  background-color: #b2d7eec2;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+/* ------------------About----------------- */
+
+.about-section {
+  width: 100%;
+  height: 90vh;
+  padding: 2%;
+  display: flex;
+  gap: 1%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.left-div {
+  width: 100%;
+  height: 55vh;
+  background-color: #d9edf769;
+  border-radius: 15px;
+  padding: 15px;
+  overflow-x: hidden;
+  justify-content: space-between;
+}
+
+.left-div h3 {
+  color: #001c30;
+  padding: 2%;
+  font-size: 370%;
+  text-align: center;
+}
+
+.left-div p {
+  color: #001c30;
+  line-height: 90%;
+  font-weight: 700;
+  padding: 2px;
+  font-size: 90%;
+  height: 60%;
+  text-size-adjust: none;
+  text-align: justify;
+}
+
+.left-div-bottom {
+  width: 100%;
+  height: 25vh;
+  background-color: #d9edf769;
+  line-height: 85%;
+  font-weight: 800;
+  border-radius: 15px;
+  padding: 3%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+}
+
+.left-div-bottom button {
+  padding: 2%;
+  outline: none;
+  border: none;
+  background-color: #001c30;
+  color: #d9edf7;
+  border-radius: 5px;
+  width: 100%;
+  display: block;
+}
+
+.left-div-cta {
+  width: 100%;
+  height: 70%;
+}
+
+.right-div {
+  width: 45%;
+  height: fit-content;
+  background-color: #d9edf769;
+  border-radius: 15px;
+  padding: 2%;
+  color: #001c30;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-team {
+  height: 70vh;
+  width: 100%;
+}
+
+/* ------------- footer ------------- */
+
+footer {
+  color: #d7ff9f !important;
+  text-align: left;
+  background-color: #002b36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  border-radius: 15px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #d7ff9f !important;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.social-media a {
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay">
+        <div class="overlay-btn">
+            <i style="color: #001C30;" class=" fa-solid fa-xmark"></i>
+        </div>
+
+        <div class="overlay-nav">
+            <a href="/">Home</a>
+            <a href="/news">News</a>
+            <a href="/blogs">Blog</a>
+        </div>
+    </div>
+
+
+    <div class="blur">
+        <header class="header">
+            <a href="#" class="logo"><span style="color: #B2D7EE">Green</span>Leap</a>
+
+            <div class="drop-container">
+                <div class="drop-icon">
+                    <i style="color: #001C30;" class="fa-solid fa-bars"></i>
+                </div>
+                <!-- <div class="menu-container">
+        <div class="menu-box" >
+                <a href="#" style="text-decoration: none ; color: inherit; cursor: default; " > Home </a>
+
+                <a href="#" style="text-decoration: none ; color: inherit; cursor: default; " > Home </a>
+
+                <a href="#" style="text-decoration: none ; color: inherit; cursor: default; " > Home </a>
+        </div>
+    </div> -->
+            </div>
+
+        </header>
+
+        <section class="home">
+            <video class="active" src="1.mp4" autoplay muted loop></video>
+            <video src="2.mp4" autoplay muted loop></video>
+            <video src="3.mp4" autoplay muted loop></video>
+
+            <div class="content">
+                <h1>Leap Towards Greener <br> <span
+                        style="color: #001C30; background-color: #B2D7EE; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800;  ">Future
+                    </span></h1>
+                <p
+                    style="color: #001C30; background-color: #d9edf7; padding: 10px; text-align: justify;  border-radius: 5px; font-weight: 800; line-height: 100%; max-width: 50vw; min-width: 45vw; min-height: 20vh; ">
+                    A leap toward a greener future signifies a bold commitment to sustainable practices and eco-friendly
+                    innovations
+                    aimed at addressing the pressing environmental challenges our world faces today. With climate
+                    change,
+                    deforestation, and pollution reaching critical levels, it is crucial for individuals, communities,
+                    and
+                    governments to work collectively in fostering green initiatives.
+                </p>
+                <a href="#" style="background-color: #001C30;">Read more</a>
+            </div>
+
+            <div class="icons">
+                <a href="#"><i style="color: #D9EDF7;" class="fab fa-twitter"></i></a>
+                <a href="#"><i style="color: #D9EDF7;" class="fab fa-instagram"></i></a>
+                <a href="#"><i style="color: #D9EDF7;" class="fab fa-facebook-f"></i></a>
+            </div>
+
+        </section>
+
+        <section class="categories">
+
+            <div class="container container_categories">
+                <div class="categories_left">
+                    <h1
+                        style="color: #001C30; background-color: #B2D7EE; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800; text-decoration: none; text-align: center;">
+                        News</h1>
+                    <p
+                        style="background-color: #D9EDF7; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800; text-decoration: none; text-align: center;">
+                        Stay informed on the latest trends, innovations, and solutions in sustainable development.
+                        Together, we can create a greener, more equitable future.
+                    </p>
+                </div>
+
+                <div class="categories_right">
+                    <article class="category">
+                        <span class="category-icon">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </span>
+                        <h5 style="color: #FAF9F6;">Climate Action</h5>
+                        <p style="color: #FAF9F6;">Discover the latest advancements in combating climate change, from
+                            renewable energy innovations to carbon reduction strategies.</p>
+                    </article>
+
+                    <article class="category">
+                        <span class="category-icon"><i class="fa-solid fa-gears"></i>
+                        </span>
+                        <h5 style="color: #FAF9F6;">Green Technology</h5>
+                        <p style="color: #FAF9F6;">Explore cutting-edge technologies paving the way for a sustainable
+                            future, from electric vehicles to green building materials.</p>
+                    </article>
+
+                    <article class="category">
+                        <span class="category-icon"> <i class="fa-solid fa-recycle"></i>
+                        </span>
+                        <h5 style="color: #FAF9F6;">Circular Economy</h5>
+                        <p style="color: #FAF9F6;">Learn how industries are reducing waste through recycling, reuse, and
+                            sustainable production practices.</p>
+                    </article>
+
+                    <article class="category">
+                        <span class="category-icon"> <i class="fa-solid fa-seedling"></i>
+                        </span>
+                        <h5 style="color: #FAF9F6;">Biodiversity and Conservation</h5>
+                        <p style="color: #FAF9F6;">See how conservation efforts are protecting endangered species and
+                            preserving vital ecosystems around the world.</p>
+                    </article>
+
+                    <article class="category">
+                        <span class="category-icon"> <i class="fa-solid fa-wheat-awn"></i> </span>
+                        <h5 style="color: #FAF9F6;">Sustainable Agriculture</h5>
+                        <p style="color: #FAF9F6;">Get insights into sustainable farming techniques that promote soil
+                            health, reduce water use, and protect biodiversity.</p>
+                    </article>
+
+                    <article class="category">
+                        <span class="category-icon"><i class="fa-solid fa-solar-panel"></i></span>
+                        <h5 style="color: #FAF9F6;">Clean Energy</h5>
+                        <p style="color: #FAF9F6;">Discover how solar, wind, and other clean energy sources are
+                            reshaping our energy systems for a cleaner future.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="home-section">
+            <h2
+                style="color: #001C30; background-color: #B2D7EE; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800; text-decoration: none; text-align: center;">
+                Heading</h2>
+            <h3
+                style="color: #001C30; background-color: #D9EDF7; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800; text-decoration: none; text-align: center;">
+                Question</h3>
+            <div class="panel">
+                <div
+                    style="background-color: #d9edf7; height: 75%; width: 100%; border-radius: 15px; padding: 0.5% 3.5% 0.5% 3.5%; ">
+                </div>
+                <input type="text"
+                    style="height: 20%; width: 95%; background-color:  #002B36; color: #B2D7EE; border-radius: 5px; "></input>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="left-section"
+                style="width: 55%; height: 95vh; border-radius: 15px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="left-div">
+                    <h3
+                        style="color: #001C30 ; background-color: #D9EDF7; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800; text-decoration: none; text-align: center;">
+                        About</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error nulla sed at amet, ipsum saepe ex
+                        odit impedit laborum delectus veritatis culpa, perspiciatis temporibus atque ad, modi velit ea
+                        tenetur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed dolore harum et laborum
+                        molestiae! Culpa eligendi soluta perspiciatis, itaque non aliquid quo exercitationem qui maiores
+                        assumenda explicabo odit quibusdam fugit commodi velit reiciendis quam dolorum deserunt
+                        inventore? Similique, quam vel tempore veniam ducimus eum sapiente velit molestiae qui magni
+                        porro. </p>
+                </div>
+                <div class="left-div-bottom">
+                    <div class="left-div-cta"> Lorem ipsum dolor sit amet. lorem5</div>
+                    <button> Let's Go </button>
+                </div>
+            </div>
+            <div class="right-div">
+                <h3>Our Team</h3>
+                <div class="carousel-team">
+                    <div id="carouselExampleCaptions" class="carousel slide h-100 " data-bs-ride="carousel">
+                        <div class="carousel-inner h-100">
+                            <div class="carousel-item active h-100 ">
+                                <img style=" border-radius: 15px;"
+                                    src="business-finance-employment-female-successful-entrepreneurs-concept-young-confident-businesswoman-glasses-showing-thumbs-up-gesture-hold-laptop-guarantee-best-service-quality.png"
+                                    class="d-block w-100 h-100 object-fit-cover" alt="...">
+                                <div class="carousel-caption" style="color: #D9EDF7 !important;">
+                                    <h5 style="background-color: #001C30; border-radius: 5px; ">First slide label</h5>
+                                    <p
+                                        style=" color: #001C30; background-color: #FAF9F6; border-radius: 5px; padding: 1% 2% 1%;">
+                                        Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item h-100 " alt="...">
+                                <img style=" border-radius: 15px;"
+                                    src=" business-finance-employment-female-successful-entrepreneurs-concept-young-confident-businesswoman-glasses-showing-thumbs-up-gesture-hold-laptop-guarantee-best-service-quality.png "
+                                    style=" border-radius: 15px; " class="d-block w-100 h-100 object-fit-cover"
+                                    alt="...">
+                                <div class="carousel-caption" style="color: #D9EDF7 !important;">
+                                    <h5 style="background-color: #001C30; border-radius: 5px; ">First slide label</h5>
+                                    <p
+                                        style=" color: #001C30; background-color: #FAF9F6; border-radius: 5px; padding: 1% 2% 1%;">
+                                        Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item h-100 " alt="...">
+                                <img style=" border-radius: 15px;"
+                                    src="business-finance-employment-female-successful-entrepreneurs-concept-young-confident-businesswoman-glasses-showing-thumbs-up-gesture-hold-laptop-guarantee-best-service-quality.png"
+                                    class="d-block w-100 h-100 object-fit-cover" alt="...">
+                                <div class="carousel-caption" style="color: #D9EDF7 !important;">
+                                    <h5 style="background-color: #001C30; border-radius: 5px; ">First slide label</h5>
+                                    <p
+                                        style=" color: #001C30; background-color: #FAF9F6; border-radius: 5px; padding: 1% 2% 1%;">
+                                        Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item h-100 " alt="...">
+                                <img style=" border-radius: 15px;"
+                                    src="business-finance-employment-female-successful-entrepreneurs-concept-young-confident-businesswoman-glasses-showing-thumbs-up-gesture-hold-laptop-guarantee-best-service-quality.png"
+                                    class="d-block w-100 h-100 object-fit-cover" alt="...">
+                                <div class="carousel-caption" style="color: #D9EDF7 !important;">
+                                    <h5 style="background-color: #001C30; border-radius: 5px; ">First slide label</h5>
+                                    <p
+                                        style=" color: #001C30; background-color: #FAF9F6; border-radius: 5px; padding: 1% 2% 1%;">
+                                        Some representative placeholder content for the first slide.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-indicators">
+                            <button style="background-color: black;" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button style="background-color: black;" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button style="background-color: black;" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                            <button style="background-color: black;" type="button"
+                                data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                                aria-label="Slide 4"></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-blanket"
+                    style=" display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1vh; background-color: #002B36; padding: 2%; width: 95vw; height: fit-content; ">
+                    <p style="color: #FAF9F6;">&copy; 2023 Your Website Name. All Rights Reserved.</p>
+                    <nav>
+                        <ul">
+                            <li style="color: #FAF9F6;"><a href="index.html">Home</a></li>
+                            <li style="color: #FAF9F6;"><a href="about.html">About Us</a></li>
+                            <li style="color: #FAF9F6;"><a href="contact.html">Contact</a></li>
+                            </ul>
+                    </nav>
+                    <div style="margin-top: 2vh;" class="social-media">
+                        <a href="https://www.facebook.com/yourwebsite" target="_blank"><i style="color: #FAF9F6;"
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/yourwebsite" target="_blank"><i style="color: #FAF9F6;"
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/yourwebsite" target="_blank"><i style="color: #FAF9F6;"
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        let overlay = document.querySelector(".overlay");
+let overlayEndBtn = document.querySelector(".overlay-btn");
+let menuHamburger = document.querySelector(".drop-icon");
+let blurry = document.querySelector(".blur");
+let logo = document.querySelector(".logo");
+let icons = document.querySelector(".icons");
+
+overlayEndBtn.addEventListener("click", () => {
+  gsap.to(overlay, { x: "-200%" });
+  document.body.style.overflow = "auto";
+  blurry.style.filter = "blur(0px)";
+});
+
+menuHamburger.addEventListener("click", () => {
+  gsap.to(overlay, { x: "-100%" });
+  document.body.style.overflow = "hidden";
+  blurry.style.filter = "blur(30px)";
+});
+
+function animation() {
+  gsap.from(logo, { y: "-200%", duration: 1, ease: "elastic.out", delay: 0.5 });
+
+  gsap.from(menuHamburger, {
+    y: "-200%",
+    duration: 1,
+    ease: "elastic.out",
+    delay: 0.5,
+  });
+
+  gsap.from(icons, { x: "800%", duration: 1, ease: "elastic.out", delay: 0.5 });
+}
+
+window.onload = animation;
+
+let menuBtn = document.querySelector(".menu-btn");
+let header = document.querySelector(".header");
+let btns = document.querySelectorAll(".nav-item");
+let videos = document.querySelectorAll("video");
+let icon = document.querySelector(".drop-icon");
+let container = document.querySelector(".drop-container");
+let body = document.getElementsByTagName("body");
+
+btns.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+    btns.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    videos.forEach((video) => {
+      video.classList.remove("active");
+    });
+
+    videos[i].classList.add("active");
+    btn.classList.add("active");
+  });
+});
+
+menuBtn.addEventListener("click", () => {
+  header.classList.toggle("active");
+});
+
+    </script>
+    <script src="animation.js"></script>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+</html>
