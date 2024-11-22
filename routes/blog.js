@@ -1,10 +1,12 @@
-const { Router } = require("express");
+const Router = require("express");
 const router = Router();
-const { handleBlogUploading } = require("../models/blog");
+const multer = require("multer");
+const Blog = require("../models/blog");
+const { upload, handleBlogUploading } = require("../controller/blog");
 
-router.post("/add-new", handleBlogUploading);
+router.post("/add-new", upload.single("coverImage"), handleBlogUploading);
 router.get("/addBlogs", (req, res) => {
-  res.render("addBlogs");
+  res.render("editor");
 });
 
 router.get("/:id", async (req, res) => {
@@ -15,4 +17,4 @@ router.get("/:id", async (req, res) => {
   });
 });
 
-module.exports = handleBlogUploading;
+module.exports = router;
