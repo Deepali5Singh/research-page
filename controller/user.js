@@ -24,13 +24,10 @@ const handerUserSignUp = async (req, res) => {
       password: hashedPassword,
     });
 
-    res.status(201).json({
-      msg: "Signed up successfully",
-      user: { id: result._id, fullName: result.fullName },
-    });
+    res.redirect("/user/login?auth=1");
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "Signup failed" });
+    res.redirect("/user/login?auth=0");
   }
 };
 
@@ -40,7 +37,7 @@ const handerUserLogin = async (req, res) => {
   try {
     // Validate input fields
     if (!email || !password) {
-      return res.status(400).json({ error: "Email and password are required" });
+      res.redirect("/user/login?err=1");
     }
 
     const user = await User.findOne({ email });
@@ -51,13 +48,8 @@ const handerUserLogin = async (req, res) => {
     if (!isPasswordValid) throw new Error("Invalid password");
     var randomNumber = Math.random().toString();
     randomNumber = randomNumber.substring(2, randomNumber.length);
-    res
-      .cookie("cookieName", randomNumber, { maxAge: 900000, httpOnly: true })
-      .status(200)
-      .json({
-        msg: "Login successful",
-        user: { id: user._id, fullName: user.fullName },
-      });
+    res.cookie("cookieName", randomNumber, { maxAge: 900000, httpOnly: true });
+    redirect("/blogs?auth=1");
     console.log("cookie created successfully");
   } catch (error) {
     console.error(error);

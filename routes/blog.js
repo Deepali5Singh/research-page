@@ -6,7 +6,7 @@ const { upload, handleBlogUploading } = require("../controller/blog");
 
 router.post("/add-new", upload.single("coverImage"), handleBlogUploading);
 router.get("/addBlogs", (req, res) => {
-  res.render("editor");
+  res.render("editor", {});
 });
 
 router.get("/:id", async (req, res) => {

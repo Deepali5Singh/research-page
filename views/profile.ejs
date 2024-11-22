@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GreenLeap - Sustainable Community</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-green: #2ecc71;
+        --dark-green: #27ae60;
+        --light-green: #90ee90;
+        --background-soft-green: #e8f5e9;
+        --text-color: #2c3e50;
+      }
+
+      body {
+        background-color: var(--background-soft-green);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("https://img.freepik.com/premium-vector/glowing-green-vector-light-bulb-csr-concept-outline-symbol-design_387612-208.jpg?w=1060");
+        background-size: cover;
+        background-attachment: fixed;
+        color: #333;
+        font-family: "Arial", sans-serif;
+      }
+
+      .auth-container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+        padding: 40px;
+        animation: fadeIn 0.5s ease;
+        border-radius: 1rem;
+        background-color: rgba(187, 238, 167, 0.8);
+        backdrop-filter: blur(1px);
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .auth-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .auth-header h2 {
+        color: var(--dark-green);
+        font-weight: bold;
+      }
+
+      .auth-header .logo {
+        color: var(--primary-green);
+        font-size: 2.5rem;
+      }
+
+      .form-control {
+        border-radius: 30px;
+        padding: 12px 20px;
+        border: 2px solid var(--light-green);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-green);
+        box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+      }
+
+      .btn-primary {
+        background-color: var(--primary-green);
+        border-radius: 30px;
+        padding: 12px;
+        font-weight: bold;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--dark-green);
+      }
+
+      .toggle-form {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .social-login {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .social-login .btn {
+        background-color: transparent;
+        border: 2px solid var(--light-green);
+        color: var(--text-color);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-login .btn:hover {
+        background-color: var(--primary-green);
+        color: white;
+      }
+
+      .password-strength {
+        height: 8px;
+        border-radius: 5px;
+        background-color: var(--light-green);
+        margin-top: 5px;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-top: 10px;
+      }
+
+      .forgot-password a {
+        color: var(--primary-green);
+        text-decoration: none;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: var(--text-color);
+      }
+
+      .form-group {
+        position: relative;
+      }
+      .alert-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050; /* Ensures it stays above other elements */
+        margin: 0; /* Removes default margins */
+        border-radius: 0; /* Removes rounded corners for a full-width look */
+      }
+    </style>
+  </head>
+  <body>
+    <% if (locals.auth ==1) { %>
+    <div
+      class="alert alert-success alert-dismissible fade show alert-top"
+      role="alert"
+    >
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong>Mission Successful!</strong> You have created your account
+      successfully.
+    </div>
+    <% } %> <% if (locals.auth ==0) { %>
+    <div
+      class="alert alert-danger alert-dismissible fade show alert-top"
+      role="alert"
+    >
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong>Mission Failed!</strong> AWWWWWW, You have failed to create your
+      account successfully.
+    </div>
+    <% } %> <% if (locals.auth ==1) { %>
+    <div
+      class="alert alert-success alert-dismissible fade show alert-top"
+      role="alert"
+    >
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong>Mission Successful!</strong> You have created your account
+      successfully.
+    </div>
+    <% } %> <% if (locals.auth ==1) { %>
+    <div
+      class="alert alert-success alert-dismissible fade show alert-top"
+      role="alert"
+    >
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+      <strong>Mission Successful!</strong> You have created your account
+      successfully.
+    </div>
+    <% } %>
+
+    <script>
+      var alertList = document.querySelectorAll(".alert");
+      alertList.forEach(function (alert) {
+        new bootstrap.Alert(alert);
+      });
+    </script>
+
+    <div class="auth-container login" id="loginContainer">
+      <div class="auth-header">
+        <h2><i class="fas fa-leaf logo"></i> GreenLeap</h2>
+        <p>Your Sustainable Community Platform</p>
+      </div>
+      <form id="loginForm" method="post" action="/user/login">
+        <div class="form-group mb-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="📧 Email Address"
+            aria-label="Email Address"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="loginPassword"
+            name="password"
+            placeholder="🔒 Password"
+            aria-label="Password"
+            required
+          />
+          <i class="fas fa-eye password-toggle" id="loginToggle"></i>
+        </div>
+        <div class="forgot-password">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          <i class="fas fa-sign-in-alt me-2"></i>Login
+        </button>
+      </form>
+      <div class="social-login">
+        <button class="btn"><i class="fab fa-google"></i></button>
+        <button class="btn"><i class="fab fa-apple"></i></button>
+        <button class="btn"><i class="fab fa-facebook-f"></i></button>
+      </div>
+      <div class="toggle-form">
+        <p>Don't have an account? <a href="#" id="showSignup">Sign Up</a></p>
+      </div>
+    </div>
+
+    <div
+      class="auth-container signup"
+      id="signupContainer"
+      style="display: none"
+    >
+      <div class="auth-header">
+        <h2><i class="fas fa-leaf logo"></i> Create Account</h2>
+        <p>Join our Sustainable Community</p>
+      </div>
+      <form id="signupForm" method="post" action="/user/signup">
+        <div class="form-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            name="fullName"
+            placeholder="👤 Full Name"
+            aria-label="Full Name"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            placeholder="📧 Email Address"
+            aria-label="Email Address"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="signupPassword"
+            placeholder="🔐 Password"
+            required
+          />
+          <i class="fas fa-eye password-toggle" id="signupToggle"></i>
+          <div class="password-strength" id="strengthBar"></div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          <i class="fas fa-user-plus me-2"></i>Sign Up
+        </button>
+      </form>
+      <div class="social-login">
+        <button class="btn"><i class="fab fa-google"></i></button>
+        <button class="btn"><i class="fab fa-apple"></i></button>
+        <button class="btn"><i class="fab fa-facebook-f"></i></button>
+      </div>
+      <div class="toggle-form">
+        <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+      </div>
+    </div>
+    <script>
+      // Toggle password visibility
+      function togglePassword(inputId, toggleId) {
+        const input = document.getElementById(inputId);
+        const toggle = document.getElementById(toggleId);
+
+        toggle.addEventListener("click", () => {
+          const isPassword = input.type === "password";
+          input.type = isPassword ? "text" : "password";
+          toggle.classList.toggle("fa-eye-slash", isPassword);
+        });
+      }
+
+      togglePassword("loginPassword", "loginToggle");
+      togglePassword("signupPassword", "signupToggle");
+
+      // Toggle between forms
+      document.getElementById("showSignup").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("signupContainer").style.display = "block";
+      });
+
+      document.getElementById("showLogin").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("signupContainer").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
