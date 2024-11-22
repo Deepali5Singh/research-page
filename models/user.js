@@ -17,6 +17,15 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  profileImageURL: {
+    type: String,
+    default: "https://www.pngwing.com/en/free-png-xsukd",
+  },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user",
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

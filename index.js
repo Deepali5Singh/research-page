@@ -7,7 +7,7 @@ const aiRoute = require("./routes/ai");
 const connectDB = require("./connect");
 const port = process.env.port || 3000;
 
-connectDB("mongodb://localhost:27017/sus-dev");
+connectDB(process.env.MONGO_URL);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/user", userRoute);
