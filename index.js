@@ -6,7 +6,7 @@ const userRoute = require("./routes/user");
 const aiRoute = require("./routes/ai");
 const blogRoute = require("./routes/blog");
 const connectDB = require("./connect");
-const port = process.env.port || 3000;
+const port = process.env.port || 4000;
 
 connectDB(process.env.MONGO_URL);
 app.use(express.json());
@@ -29,3 +29,4 @@ app.get("/login", (req, res) => res.render("profile"));
 //app.get("/chatwithai", (req, res) => res.render("myai"));
 
 app.listen(port, () => console.log(`App is listening on port ${port}!`));
+module.exports = app;
