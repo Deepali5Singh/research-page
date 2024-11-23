@@ -42,14 +42,16 @@ const handerUserLogin = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) throw new Error("Email not found");
-
+    req.user = user;
+    console.log(user);
     // Comparing entered password with hashed password in DB
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) throw new Error("Invalid password");
     var randomNumber = Math.random().toString();
     randomNumber = randomNumber.substring(2, randomNumber.length);
     res.cookie("cookieName", randomNumber, { maxAge: 900000, httpOnly: true });
-    redirect("/blogs?auth=1");
+    res.redirect("/blogs?auth=1");
+    return req.user;
     console.log("cookie created successfully");
   } catch (error) {
     console.error(error);

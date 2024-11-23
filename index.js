@@ -19,8 +19,11 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-app.get("/", (req, res) => res.render("index"));
-app.get("/signup", (req, res) => res.render("profile"));
+app.get("/", (req, res) => {
+  res.render("index");
+  console.log(req);
+});
+app.get("/login", (req, res) => res.render("profile"));
 
 //app.get("/blogs", (req, res) => res.render("home"));
 //app.get("/chatwithai", (req, res) => res.render("myai"));
