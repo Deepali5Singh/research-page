@@ -1,5 +1,4 @@
 /* Google Fonts(Poppins) */
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Itim&display=swap');
 
 * {
   font-family: "Poppins", sans-serif;
@@ -75,6 +74,7 @@ section {
 
 .home .content h1 {
   color: #D9EDF7;
+  font-family:@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   font-size: 50px;
   font-weight: 700;
   text-transform: uppercase;
@@ -92,6 +92,8 @@ section {
 
 .home .content p {
   margin-bottom: 50px;
+  font-family:@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 }
 
 .home .content a {
@@ -184,6 +186,7 @@ section {
 
 .categories h1 {
   line-height: 1;
+  font-family:@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   font-size: 60px;
 }
 
@@ -201,6 +204,7 @@ section {
 
 .categories_left p {
   margin: 1rem 0 3rem;
+  font-family:@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
   color: #001C30 ;
 }
 
