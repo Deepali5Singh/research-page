@@ -59,13 +59,23 @@
     <video src="/3.mp4" autoplay muted loop></video>
 
     <div class="content">
-      <h1>Leap Towards Greener <br> <span style="color: #001C30; background-color: #B2D7EE; padding: 0.2% 2.5% 0.2% 2.5%; border-radius: 5px; font-weight: 800;  "  >Future </span></h1>
-      <p style="color: #001C30; background-color: #d9edf7; padding: 10px; text-align: justify;  border-radius: 5px; font-weight: 800; line-height: 100%; max-width: 50vw; min-width: 45vw; min-height: 20vh; " >
-        A leap toward a greener future signifies a bold commitment to sustainable practices and eco-friendly innovations
-        aimed at addressing the pressing environmental challenges our world faces today. With climate change,
-        deforestation, and pollution reaching critical levels, it is crucial for individuals, communities, and
-        governments to work collectively in fostering green initiatives.
-      </p>
+       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center mb-4">
+              Leap Towards Greener
+              <br />
+              <span className="inline-block mt-2 px-6 py-1 bg-[#B2D7EE] text-[#001C30] rounded">
+                Future
+              </span>
+            </h1>
+
+            {/* Paragraph */}
+            <div className="w-full md:w-[50vw] mt-6">
+              <p className="bg-[#d9edf7] text-[#001C30] p-6 rounded text-base md:text-lg font-semibold leading-relaxed text-justify min-h-[20vh]">
+                A leap toward a greener future signifies a bold commitment to sustainable practices 
+                and eco-friendly innovations aimed at addressing the pressing environmental challenges 
+                our world faces today. With climate change, deforestation, and pollution reaching 
+                critical levels, it is crucial for individuals, communities, and governments to work 
+                collectively in fostering green initiatives.
+              </p>
       <a href="#" style="background-color: #001C30;" >Read more</a>
     </div>
 
