@@ -1,40 +1,42 @@
 $(document).ready(function () {
-  const chatDisplay = $("#chat");
-  const chatInput = $("#chat_msg");
-  const sendButton = $("#submit-btn");
+  const chatDisplay = $("#chat"); // Updated to match the 'message-area' ID
+  const chatInput = $("#chat_msg"); // Matches input ID
+  const sendButton = $("#submit-btn"); // Matches button ID
 
-  // Function to append messages to the chat
+  // Function to append messages to the chat area
   function appendMessage(message, isUser) {
     const messageDiv = $("<div>").addClass(
-      isUser ? "flex justify-end mb-4" : "flex justify-start mb-4"
+      isUser ? "flex justify-end" : "flex justify-start"
     );
-    const messageContent = $("<div>")
+    const messageBubble = $("<div>")
       .addClass(
         isUser
-          ? "bg-blue-500 text-white max-w-lg rounded-xl px-4 py-2.5 text-base shadow-md"
-          : "bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white max-w-lg rounded-xl px-4 py-2.5 text-base shadow-md"
+          ? "user-message px-4 py-2 rounded-xl shadow-md text-base max-w-sm"
+          : "ai-message px-4 py-2 rounded-xl shadow-md text-base max-w-sm"
       )
       .text(message);
 
-    messageDiv.append(messageContent);
+    messageDiv.append(messageBubble);
     chatDisplay.append(messageDiv);
-    chatDisplay.scrollTop(chatDisplay[0].scrollHeight); // Scroll to bottom
+
+    // Scroll to the latest message
+    chatDisplay.scrollTop(chatDisplay[0].scrollHeight);
   }
 
-  // Function to send a message
+  // Function to handle message sending
   function sendMessage(e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent form submission
     const message = chatInput.val().trim();
 
-    if (!message) return; // Exit if no input
+    if (!message) return; // Ignore empty input
 
     // Append user message
     appendMessage(message, true);
-    chatInput.val(""); // Clear input field
+    chatInput.val(""); // Clear input
 
     // Send the message to the server
     $.ajax({
-      url: "/chatwithai", // Update to your server endpoint
+      url: "/chatwithai", // Replace with your server endpoint
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify({ chat: message }),
@@ -44,7 +46,7 @@ $(document).ready(function () {
       },
       error: function (xhr, status, error) {
         appendMessage(
-          "Sorry, there was an error processing your request.",
+          "Sorry, an error occurred while processing your request.",
           false
         );
         console.error("Error:", error);
@@ -52,7 +54,7 @@ $(document).ready(function () {
     });
   }
 
-  // Event listeners for form submission and button click
-  $("form").on("submit", sendMessage);
-  sendButton.on("click", sendMessage);
+  // Event listeners for message submission
+  $("form").on("submit", sendMessage); // Form submission
+  sendButton.on("click", sendMessage); // Button click
 });
