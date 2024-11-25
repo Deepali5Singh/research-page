@@ -1,5 +1,7 @@
 const Blog = require("../models/blog");
 const path = require("path");
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Types;
 const multer = require("multer");
 
 // Multer storage configuration
@@ -31,12 +33,12 @@ const handleBlogUploading = async (req, res) => {
     const blog = await Blog.create({
       title,
       body,
-      createdBy: req.user._id,
-      coverImageURL: `/uploads/${req.file.filename}`, // Multer file info
+      createdBy: new ObjectId("64a67d2f8c9b3a0012345678"),
+      //coverImageURL: `/uploads/${req.file.filename}`, // Multer file info
     });
 
     // Redirect to the new blog page
-    return res.redirect(`/blog/${blog._id}`);
+    return res.redirect(`/blogs/${blog._id}`);
   } catch (error) {
     console.error("Error creating blog:", error);
     res.status(500).send("Internal Server Error");

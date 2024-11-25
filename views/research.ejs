@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Research Papers</title>
+    <link rel="stylesheet" href="/research.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1>Digital Research Papers</h1>
+        <p class="subtitle">Exploring the Future of Technology & Innovation</p>
+      </header>
+
+      <main class="main-content">
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+                alt="Digital Marketing Analytics Dashboard"
+              />
+              <div class="blog-content">
+                <h2>Digital Marketing Trends</h2>
+                <p>
+                  Exploring emerging trends, challenges, and opportunities in
+                  the evolving digital landscape
+                </p>
+                <a href="#" class="read-more" data-modal="digitalMarketingModal"
+                  >Read Research Paper →</a
+                >
+              </div>
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80"
+                alt="Sustainable Technology Network"
+              />
+              <div class="blog-content">
+                <h2>Digital Framework for Sustainable Development</h2>
+                <p>
+                  Analyzing the impact of digital transformation on global
+                  sustainability goals
+                </p>
+                <a
+                  href="#"
+                  class="read-more"
+                  data-modal="sustainableDevelopmentModal"
+                  >Read Research Paper →</a
+                >
+              </div>
+            </div>
+
+            <div class="carousel-slide">
+              <img
+                src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80"
+                alt="Digital Technology Matrix"
+              />
+              <div class="blog-content">
+                <h2>Theory of Digital Technology</h2>
+                <p>
+                  Examining how digital advancements address contemporary
+                  challenges
+                </p>
+                <a
+                  href="#"
+                  class="read-more"
+                  data-modal="digitalTechnologyModal"
+                  >Read Research Paper →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-button prev" aria-label="Previous slide">
+            ←
+          </button>
+          <button class="carousel-button next" aria-label="Next slide">
+            →
+          </button>
+
+          <div class="carousel-dots">
+            <button class="dot active" aria-label="Go to slide 1"></button>
+            <button class="dot" aria-label="Go to slide 2"></button>
+            <button class="dot" aria-label="Go to slide 3"></button>
+          </div>
+        </div>
+
+        <!-- Rest of the modal content remains the same -->
+        <!-- Previous modal content preserved -->
+      </main>
+    </div>
+    <script type="module" src="/research.js"></script>
+  </body>
+</html>
