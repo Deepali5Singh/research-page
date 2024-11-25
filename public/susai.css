@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url(https://images.pexels.com/photos/1187974/pexels-photo-1187974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-image: url("https://img.freepik.com/premium-vector/glowing-green-vector-light-bulb-csr-concept-outline-symbol-design_387612-208.jpg?w=1060");
   background-size: cover;
   background-position: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -54,7 +54,7 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(157, 232, 163, 0.1);
   backdrop-filter: blur(5px);
 }
 
