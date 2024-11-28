@@ -3,25 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leaper AI - Premium Chatbox</title>
+    <title>EcoChat AI</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
     <script src="/susai.js"></script>
+    <script src="/jquery-3.7.1.min.js"></script>
     <style>
       :root {
-        --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        --secondary-gradient: linear-gradient(135deg, #08aeea 0%, #2af598 100%);
-        --background-subtle: rgba(255, 255, 255, 0.1);
+        --primary-gradient: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+        --secondary-gradient: linear-gradient(135deg, #66bb6a 0%, #a5d6a7 100%);
+        --background-subtle: rgba(0, 0, 0, 0.1);
         --text-primary: #ffffff;
-        --text-secondary: #e0e0e0;
+        --text-secondary: #c8e6c9;
       }
 
       body {
-        background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+        background: linear-gradient(45deg, #2e7d32, #81c784, #aed581);
         background-size: 400% 400%;
-        animation: gradientBG 15s ease infinite;
+        animation: gradientBG 12s ease infinite;
         font-family: "Inter", sans-serif;
       }
 
@@ -38,12 +39,14 @@
       }
 
       .chat-container {
-        max-width: 500px;
-        height: 80vh;
+        max-width: 600px;
+        height: 70vh;
         background: var(--background-subtle);
         backdrop-filter: blur(15px);
         border-radius: 20px;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
       }
 
       .chat-header {
@@ -55,10 +58,13 @@
       .message-area {
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+        overflow-y: auto;
+        flex-grow: 1;
+        padding: 1rem;
       }
 
       .message-area::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
       }
 
       .message-area::-webkit-scrollbar-thumb {
@@ -86,54 +92,83 @@
       .send-button:hover {
         transform: scale(1.05);
       }
+
+      .clear-button {
+        background: var(--secondary-gradient);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .clear-button:hover {
+        background: #66bb6a;
+      }
     </style>
   </head>
+  <% if (!cookies) { %>
+  <body
+    class="bg-gradient-to-br from-green-50 to-emerald-100 min-h-screen flex items-center justify-center"
+  >
+    <div
+      class="w-96 bg-white shadow-2xl rounded-2xl border border-green-100 p-8 text-center transform transition-all hover:scale-105"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-24 w-24 mx-auto text-green-600 mb-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+        />
+      </svg>
+      <h1 class="text-2xl font-bold text-green-800 mb-4">Access EcoChat AI</h1>
+      <p class="text-gray-600 mb-6">
+        Secure login required to protect environmental insights
+      </p>
+      <a href="/login">
+        <button
+          class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors"
+        >
+          Log In
+        </button></a
+      >
+      <div class="mt-4 text-sm text-gray-500">Powered by Green Leaper Team</div>
+    </div>
+  </body>
+  <% } else { %>
   <body class="flex items-center justify-center min-h-screen">
-    <div class="chat-container w-full mx-4 flex flex-col shadow-2xl">
+    <div class="chat-container w-full mx-4">
       <!-- Chat Header -->
       <div class="chat-header p-4 flex justify-between items-center text-white">
-        <h2 class="text-xl font-bold">Leaper AI</h2>
-        <div class="flex space-x-2">
-          <button class="focus:outline-none">
-            <svg
-              class="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-              ></path>
-            </svg>
-          </button>
-          <button class="focus:outline-none">
-            <svg
-              class="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </button>
-        </div>
+        <h2 class="text-xl font-bold">EcoChat AI</h2>
+        <button id="clear-chat" class="clear-button">Clear Chat</button>
+      </div>
+
+      <!-- Onboarding Message -->
+      <div
+        class="text-center text-white bg-opacity-10 p-2"
+        style="backdrop-filter: blur(10px)"
+      >
+        Welcome to EcoChat AI, your sustainable companion! 🌿
       </div>
 
       <!-- Message Area -->
+      <div class="message-area" id="chat"></div>
+
+      <!-- Typing Indicator -->
       <div
-        class="message-area flex-grow overflow-y-auto p-4 space-y-4"
-        id="chat"
-      ></div>
+        id="typing-indicator"
+        class="p-2 text-white text-opacity-80 hidden text-sm"
+      >
+        EcoChat is typing...
+      </div>
 
       <!-- Input Area -->
       <div class="input-area p-4 bg-opacity-10 backdrop-blur-sm">
@@ -143,7 +178,7 @@
               type="text"
               placeholder="Type your message..."
               id="chat_msg"
-              class="flex-grow p-3 bg-white bg-opacity-20 rounded-full text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="flex-grow p-3 bg-white bg-opacity-20 rounded-full text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
             <button
               id="submit-btn"
@@ -168,5 +203,67 @@
         </form>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const chatDisplay = $("#chat");
+        const chatInput = $("#chat_msg");
+        const sendButton = $("#submit-btn");
+        const typingIndicator = $("#typing-indicator");
+        const clearChat = $("#clear-chat");
+
+        function appendMessage(message, isUser) {
+          const messageDiv = $("<div>").addClass(
+            isUser ? "flex justify-end" : "flex justify-start"
+          );
+          const messageBubble = $("<div>")
+            .addClass(
+              isUser
+                ? "user-message px-4 py-2 rounded-xl shadow-md text-base max-w-sm"
+                : "ai-message px-4 py-2 rounded-xl shadow-md text-base max-w-sm"
+            )
+            .text(message);
+          messageDiv.append(messageBubble);
+          chatDisplay.append(messageDiv);
+          chatDisplay.scrollTop(chatDisplay[0].scrollHeight);
+        }
+
+        function sendMessage(e) {
+          e.preventDefault();
+          const message = chatInput.val().trim();
+          if (!message) return;
+          appendMessage(message, true);
+          chatInput.val("");
+          typingIndicator.show();
+
+          $.ajax({
+            url: "/chatwithai",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ chat: message }),
+            success: function (response) {
+              typingIndicator.hide();
+              appendMessage(response.response, false);
+            },
+            error: function () {
+              typingIndicator.hide();
+              appendMessage(
+                "Sorry, an error occurred while processing your request.",
+                false
+              );
+            },
+          });
+        }
+
+        clearChat.click(() => {
+          chatDisplay.empty();
+          appendMessage("Chat cleared. Start fresh! 🌱", false);
+        });
+
+        $("form").on("submit", sendMessage);
+        sendButton.on("click", sendMessage);
+      });
+    </script>
   </body>
+  <% } %>
 </html>

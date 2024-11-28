@@ -3,6 +3,7 @@ const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require("dotenv").config();
 const userRoute = require("./routes/user");
+const cookieParser = require("cookie-parser");
 const aiRoute = require("./routes/ai");
 const blogRoute = require("./routes/blog");
 const connectDB = require("./connect");
@@ -15,6 +16,7 @@ app.use("/user", userRoute);
 app.use("/chatwithai", aiRoute);
 app.use("/blogs", blogRoute);
 app.use(express.static("public"));
+app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", "./views");

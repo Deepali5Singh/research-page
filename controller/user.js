@@ -50,7 +50,7 @@ const handerUserLogin = async (req, res) => {
     var randomNumber = Math.random().toString();
     randomNumber = randomNumber.substring(2, randomNumber.length);
     res.cookie("cookieName", randomNumber, { maxAge: 900000, httpOnly: true });
-    res.redirect("/blogs?auth=1");
+    res.redirect("/chatwithai?auth=1");
     return req.user;
     console.log("cookie created successfully");
   } catch (error) {
