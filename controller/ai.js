@@ -3,7 +3,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const handerAIchat = async (req, res) => {
   const { chat } = req.body; // Assuming the frontend sends the message as "chat"
 
-  console.log(req.body); // Log the request body for debugging
+  console.log(req.user); // Log the request body for debugging
   // Validate API key
   const apiKey = process.env.API_KEY;
   if (!apiKey) {

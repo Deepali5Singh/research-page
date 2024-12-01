@@ -51,6 +51,7 @@ const handerUserLogin = async (req, res) => {
     randomNumber = randomNumber.substring(2, randomNumber.length);
     res.cookie("cookieName", randomNumber, { maxAge: 900000, httpOnly: true });
     res.redirect("/chatwithai?auth=1");
+    req.user = user;
     return req.user;
     console.log("cookie created successfully");
   } catch (error) {
