@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - EcoSync</title>
+    <link rel="stylesheet" href="/about.css" />
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <!-- About Hero Section -->
+    <section class="about-hero">
+      <div class="about-hero-content">
+        <h1>Our Mission</h1>
+        <p>Innovating for a sustainable tomorrow</p>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="our-story">
+      <div class="story-container">
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>
+            Founded in 2024, EcoSync emerged from a passionate group of
+            environmentalists, technologists, and innovators united by a common
+            goal: to bridge the gap between technological advancement and
+            environmental sustainability.
+          </p>
+        </div>
+        <div class="story-image"></div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+      <h2>Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon innovation"></div>
+          <h3>Innovation</h3>
+          <p>
+            Pushing boundaries to find new solutions for environmental
+            challenges
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon sustainability"></div>
+          <h3>Sustainability</h3>
+          <p>Ensuring our actions today protect tomorrow's resources</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon collaboration"></div>
+          <h3>Collaboration</h3>
+          <p>Working together to achieve greater environmental impact</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon education"></div>
+          <h3>Education</h3>
+          <p>Sharing knowledge to empower sustainable decisions</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/deepali.jpeg" alt="deepali singh" />
+          </div>
+          <h3>Deepali Singh</h3>
+          <p>Frontend Developer</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/suyash.jpeg" alt="suyash singh" />
+          </div>
+          <h3>Suyash Singh</h3>
+          <p>Project Manager</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/raghav.jpeg" alt="raghav dwivedi" />
+          </div>
+          <h3>Raghav Dwivedi</h3>
+          <p>Backend Developer</p>
+        </div>
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/love.jpeg" alt="love verma" />
+          </div>
+          <h3>Love Verma</h3>
+          <p>Content Manager</p>
+        </div>
+      </div>
+    </section>
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+      <div class="cta-content">
+        <h2>Join Our Mission</h2>
+        <p>Together, we can make a difference</p>
+        <a href="/contact" class="cta-button">Get Involved</a>
+      </div>
+    </section>
+    <%- include('footer.ejs') %>
+  </body>
+</html>
